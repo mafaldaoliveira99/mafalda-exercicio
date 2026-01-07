@@ -1,6 +1,7 @@
-FROM ubuntu
-RUN apt -y update
-RUN apt -y install apache2
-RUN echo "Melhor site" > /var/www/html/index.html
+FROM python:3.11-slim
 
-EXPOSE 80
+WORKDIR /app
+
+COPY app.py .
+
+CMD ["python", "app.py"]
